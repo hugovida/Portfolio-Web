@@ -1,0 +1,162 @@
+/* styles.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    background-image: url('https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/styles/1200/public/media/image/2019/05/visual-studio-online.jpg?itok=JmzraVZM');
+}
+
+
+Button:hover {
+    background-color: #1c7b47;
+  }
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+nav {
+    margin-bottom: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+nav a:hover {
+    border-bottom: 2px solid #fff;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header p {
+    margin: 5px 0;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+img {
+    float: left;
+    margin-right: 20px;
+    border-radius: 8px;
+}
+@keyframes rainbowEffect {
+    0% {
+      color: red;
+    }
+    14% {
+      color: orange;
+    }
+    28% {
+      color: yellow;
+    }
+    42% {
+      color: green;
+    }
+    57% {
+      color: blue;
+    }
+    71% {
+      color: indigo;
+    }
+    85% {
+      color: violet;
+    }
+    100% {
+      color: red;
+    }
+  }
+  
+  .text-effect {
+    animation: rainbowEffect 5s infinite;
+  }
+
+      /* Estilos para la animación */
+      @keyframes cambioTamanio {
+        0% {
+          font-size: 1.5em;
+          opacity: 1;
+          color:rgb(110, 118, 0);
+        }
+        25%{
+          font-size: 2.5em;
+          opacity: 0;
+          color:rgb(0, 112, 106)
+        }
+        50% {
+          font-size: 1.5em;
+          opacity: 1;
+          color:rgb(0, 47, 108);
+        }
+        75%{
+          font-size: 2.5em;
+          opacity: 0;
+          color:rgb(80, 0, 104)
+        }
+        100% {
+          font-size: 1.5em;
+          opacity: 1;
+          color:rgb(135, 0, 0);
+        }
+      }
+      .animado {
+        animation: cambioTamanio 5s ease-in-out infinite;
+      }
+
+      button {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: 600;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        border: 2px solid #2ecc71; /* Color del borde verde */
+        border-radius: 5px;
+        color: #ffffff; /* Color del texto verde */
+        background-color: #2ecc71;; /* Color de fondo blanco */
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+      }
+      
+      /* Cambiar estilo al pasar el mouse */
+      button:hover {
+        background-color: #ffffff;
+        color: #2ecc71;
+        border-color: #27ae60; /* Cambiar color del borde al pasar el mouse */
+      }
+      
+      /* Estilo para botones desactivados */
+      button:disabled {
+        background-color: #95a5a6;
+        color: #ffffff;
+        border-color: #95a5a6;
+        cursor: not-allowed;
+      }
+
+      /* Estilo para párrafos */

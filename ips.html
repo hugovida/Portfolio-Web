@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IPs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #calculator {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="calculator">
+        <h2>Calculadora de IPs</h2>
+        <label for="ipAddress">Dirección IP:</label>
+        <input type="text" id="ipAddress" placeholder="Ejemplo: 192.168.1.1">
+
+        <label for="subnetMask">Máscara de Subred:</label>
+        <input type="text" id="subnetMask" placeholder="Ejemplo: 255.255.255.0">
+
+        <button onclick="calcular()">Calcular</button>
+
+        <h3>Resultado:</h3>
+        <p id="networkAddress"><strong>Dirección de Red:</strong></p>
+        <p id="broadcastAddress"><strong>Dirección de Broadcast:</strong></p>
+        <p id="firstHost"><strong>Primer Host:</strong></p>
+        <p id="lastHost"><strong>Último Host:</strong></p>
+        <p id="subnetMaskResult"><strong>Máscara de Subred:</strong></p>
+    </div>
+
+   
+<script>
+function calcular() {
+    var ipAddress = document.getElementById("ipAddress").value;
+    var subnetMask = document.getElementById("subnetMask").value;
+
+    // Aquí puedes agregar la lógica de cálculo según tus necesidades
+
+    // Ejemplo simple: Mostrar información ingresada
+    document.getElementById("networkAddress").innerText = "Dirección de Red: " + ipAddress;
+    document.getElementById("broadcastAddress").innerText = "Dirección de Broadcast: " + ipAddress[0] + ipAddress[1] + ipAddress[2] + ipAddress[4] + subnetMask[3] + subnetMask[4] + subnetMask[5] + subnetMask[6];
+    document.getElementById("firstHost").innerText = "Primer Host: " + ipAddress;
+    document.getElementById("lastHost").innerText = "Último Host: " + subnetMask;
+    document.getElementById("subnetMaskResult").innerText = "Máscara de Subred: " + subnetMask;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora IP</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Calculadora de Direcciones IP</h2>
+    <input type="text" id="inputValue" placeholder="Ingrese dirección IP">
+    <br>
+    <button onclick="checkIPType()">Verificar IP</button>
+    <button onclick="convertIPToDecimal()">IP a Decimal</button>
+    <button onclick="convertIPToBinary()">IP a Binario</button>
+    <br>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    function checkIPType() {
+      const input = document.getElementById('inputValue').value;
+
+      if (input.includes('.')) {
+        document.getElementById('result').innerText = 'Es una dirección IPv4';
+      } else if (input.includes(':')) {
+        document.getElementById('result').innerText = 'Es una dirección IPv6';
+      } else {
+        document.getElementById('result').innerText = 'Ingrese una dirección IP válida';
+      }
+    }
+
+    function convertIPToDecimal() {
+      const input = document.getElementById('inputValue').value;
+      let result = '';
+
+      if (input.includes('.')) {
+        const parts = input.split('.');
+        result = parts.map(part => parseInt(part).toString(10)).join('.');
+      } else if (input.includes(':')) {
+        // Lógica para convertir IPv6 a decimal si es necesario
+        result = 'Conversión IPv6 a decimal no implementada';
+      } else {
+        result = 'Ingrese una dirección IP válida';
+      }
+
+      document.getElementById('result').innerText = `La dirección IP en decimal es: ${result}`;
+    }
+
+    function convertIPToBinary() {
+      const input = document.getElementById('inputValue').value;
+      let result = '';
+
+      if (input.includes('.')) {
+        const parts = input.split('.');
+        result = parts.map(part => parseInt(part).toString(2).padStart(8, '0')).join('.');
+      } else if (input.includes(':')) {
+        // Lógica para convertir IPv6 a binario si es necesario
+        result = 'Conversión IPv6 a binario no implementada';
+      } else {
+        result = 'Ingrese una dirección IP válida';
+      }
+
+      document.getElementById('result').innerText = `La dirección IP en binario es: ${result}`;
+    }
+  </script>
+  <style>
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+  width: 550px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+input {
+  padding: 10px;
+  margin-bottom: 15px;
+  width: calc(100% - 22px);
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+}
+/* Estilos anteriores permanecen iguales */
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 5px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  background-color: #388e3c;
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+
+</style>
+</body>
+</html>

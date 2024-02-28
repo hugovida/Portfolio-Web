@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculadora</title>
+	<style>
+	body {
+	background-color: #b9b2b2;
+	font-family: Arial, sans-serif;
+}
+
+h1 {
+	text-align: center;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+#calculator {
+	width: 300px;
+	margin: 0 auto;
+	background-color: #b1b1b1;
+	border-radius: 5px;
+	padding: 20px;
+	box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+}
+
+#result {
+	height: 50px;
+	background-color: #f2f2f2;
+	border-radius: 5px;
+	padding: 10px;
+	font-size: 24px;
+	text-align: right;
+	margin-bottom: 20px;
+	box-shadow: inset 0px 0px 10px rgba(0,0,0,0.2);
+}
+
+#history {
+	height: 50px;
+	background-color: #f2f2f2;
+	border-radius: 5px;
+	padding: 10px;
+	font-size: 16px;
+	text-align: right;
+	margin-bottom: 20px;
+	box-shadow: inset 0px 0px 10px rgba(0,0,0,0.2);
+}
+
+button {
+	width: 50px;
+	height: 50px;
+	background-color: #a2ff86;
+	border-radius: 5px;
+	border: none;
+	font-size: 24px;
+	margin-right: 21px;
+	margin-bottom: 20px;
+	box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+	cursor: pointer;
+}
+
+button:hover {
+	background-color: #79c739;
+}
+
+button:active {
+	box-shadow: inset 0px 0px 10px rgba(0,0,0,0.2);
+}
+
+.clear {
+	background-color: #ff6666;
+	color: #fff;
+}
+
+.clear:hover {
+	background-color: #ff4d4d;
+}
+
+.clear:active {
+	box-shadow: inset 0px 0px 10px rgba(0,0,0,0.2);
+}
+
+.backspace {
+	background-color: #b3b3b3;
+	color: #fff;
+}
+
+.backspace:hover {
+	background-color: #999999;
+}
+
+.backspace:active {
+	box-shadow: inset 0px 0px 10px rgba(0,0,0,0.2);
+}
+.result-red {
+   color: #a841fc;
+}
+	</style>
+</head>
+<body>
+	<h1>Calculadora</h1>
+	<div id="calculator">
+		<div id="result"></div>
+		<button onclick="addToResult('7')">7</button>
+		<button onclick="addToResult('8')">8</button>
+		<button onclick="addToResult('9')">9</button>
+		<button onclick="addToResult('/')">/</button>
+		<button onclick="addToResult('4')">4</button>
+		<button onclick="addToResult('5')">5</button>
+		<button onclick="addToResult('6')">6</button>
+		<button onclick="addToResult('*')">*</button>
+		<button onclick="addToResult('1')">1</button>
+		<button onclick="addToResult('2')">2</button>
+		<button onclick="addToResult('3')">3</button>
+		<button onclick="addToResult('-')">-</button>
+		<button onclick="addToResult('0')">0</button>
+		<button onclick="addToResult('.')">.</button>
+		<button onclick="calculate()">=</button>
+		<button class="clear" onclick="clearResult()">C</button>
+		<button class="backspace" onclick="backspace()">←</button>
+	</div>
+	<script>
+		var result = document.getElementById('result');
+
+function addToResult(value) {
+    result.innerHTML += value;
+    updateResultColor(); // Actualiza el color del resultado después de cada operación
+}
+
+function calculate() {
+    result.innerHTML = eval(result.innerHTML);
+    updateResultColor();
+}
+
+function clearResult() {
+    result.innerHTML = '';
+    updateResultColor();
+}
+
+function backspace() {
+    result.innerHTML = result.innerHTML.slice(0, -1);
+    updateResultColor();
+}
+
+function updateResultColor() {
+    var resultLength = result.innerHTML.length;
+    if (resultLength % 2 === 0) {
+        result.classList.add('result-red');
+       
+    } else {
+        result.classList.add('result-red');
+    }
+}
+	</script>
+</body>
+</html>
